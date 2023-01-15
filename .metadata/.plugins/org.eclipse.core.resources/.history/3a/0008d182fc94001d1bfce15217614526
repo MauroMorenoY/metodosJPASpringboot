@@ -1,0 +1,50 @@
+package com.alumno.api.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.alumno.api.model.Estudiante;
+
+@RestController
+@RequestMapping("api")
+public class EstudianteController {
+	
+	@Autowired
+	private EstudianteService estudianteService;
+	
+	@GetMapping("estudiante")
+	public List<Estudiante> obtenerEstudiantes (){
+		
+		List<Estudiante> lista = new ArrayList<>();
+		Estudiante a = new Estudiante();
+				
+		a.setId(1);
+		a.setNombres("Mauro");
+		a.setApellidos("Moreno");
+		a.setEmail("algo");
+		a.setNota(15.52);
+		
+		lista.add(a);
+		return lista;
+	}
+	
+@PostMapping("guardaestudiante")//definicion de endpoint 
+	public Estudiante guardarEstudiante (@RequestBody Estudiante estudiante)//request body para enviar desde un raw json 4
+	{
+	estudianteService.guardar(estudiante);
+		return estudiante;
+	}
+
+@GetMapping("verestudiantes")
+public List<Estudiante> obtener (){
+	return estudianteService.obtenerEstudiante();
+}
+	
+}

@@ -1,0 +1,5 @@
+package com.alumno.api.model;
+
+public class Estudiante {
+
+}

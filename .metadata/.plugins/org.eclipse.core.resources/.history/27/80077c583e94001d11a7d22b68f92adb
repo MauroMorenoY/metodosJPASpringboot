@@ -1,0 +1,15 @@
+package com.alumno.api.controller;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping()
+public class EstudianteController {
+	
+	public List<Estudiante> obtenerEstudiantes (){
+		return null;
+	}
+}
